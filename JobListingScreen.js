@@ -46,7 +46,6 @@ const JobListingScreen = ({ navigation }) => {
     const isBookmarked = bookmarkedJobs.includes(item.id);
 
     const handleApplyNow = () => {
-      // Implement your logic to handle the "Apply Now" button
       // This function will be called when the button is pressed
       console.log('Apply Now clicked for job ID:', item.id);
     };
@@ -84,6 +83,13 @@ const JobListingScreen = ({ navigation }) => {
     navigation.navigate('BookmarkedJobs', { bookmarkedJobs });
   };
 
+  const logout = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });
+  };
+
   const renderNoResultsFound = () => {
     if (filteredJobData.length === 0 && searchKeyword !== '') {
       return (
@@ -111,6 +117,9 @@ const JobListingScreen = ({ navigation }) => {
       />
       <TouchableOpacity style={styles.viewBookmarkedButton} onPress={navigateToBookmarkedJobs}>
         <Text style={styles.viewBookmarkedButtonText}>View Bookmarked Jobs</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+        <Icon name="sign-out" size={24} color="#FFFFFF" />
       </TouchableOpacity>
     </View>
   );
@@ -199,6 +208,13 @@ const styles = StyleSheet.create({
   noResultsText: {
     fontSize: 16,
     color: '#888888',
+  },
+  logoutButton: {
+    backgroundColor: '#007bff',
+    borderRadius: 4,
+    padding: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

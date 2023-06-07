@@ -4,9 +4,9 @@ let User = require("../models/user.model"); // assign temporary variables
 // login
 router.route("/login").get((req, res) => {
   console.log(req);
-  User.findOne({ email: `${req.body.email}` })
+  User.findOne({ email: `${req.query.email}` })
     .then((users) => {
-      if (users.password != req.body.password) {
+      if (users.password != req.query.password) {
         res.status(400).json("Incorrect password");
       } else {
         res.status(200).json(users); // send right response
@@ -22,9 +22,7 @@ router.route("/register").post((req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
-  //const contact = req.body.contact;
 
-  //const newUser = new User({ name, email, password, contact });
   const newUser = new User({ name, email, password });
   // register user
   newUser

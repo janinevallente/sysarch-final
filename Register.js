@@ -9,19 +9,6 @@ export default function Register({ navigation }) {
   const [registerStatus, setRegisterStatus] = useState(false); 
   const [showWarning, setShowWarning] = useState(false); 
 
-
-  /*const handleRegister = () => {
-
-   if (name == ''|| email === '' || password === '') {
-    setShowWarning(true);
-    setRegisterStatus(false);
-    return;
-  }
-
-    setRegisterStatus(true);
-    setShowWarning(false);
-  };*/
-
   const handleRegister = async () => {
     if (name === '' || email === '' || password === '') {
       setShowWarning(true);

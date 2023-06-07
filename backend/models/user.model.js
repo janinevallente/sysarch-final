@@ -5,7 +5,7 @@ const schema = mongoose.Schema;
 
 const userSchema = new schema({
 	
-	// first name column
+	//name column
 	name: {
 		type: String,
 		required: true,
@@ -22,15 +22,6 @@ const userSchema = new schema({
 		trim: true,
 		//minlength: 10
 	},	
-
-	// contact column
-	/*contact: {
-		type: String,
-		required: true,
-		unique: false,
-		trim: true,
-		minlength: 5
-	},*/
 
 	// password column
 	password: {

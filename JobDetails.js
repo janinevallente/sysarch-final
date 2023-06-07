@@ -12,9 +12,6 @@ const JobDetails = ({ route }) => {
   }, []);
 
   const fetchJobDetails = () => {
-    // Replace this with your actual data-fetching logic
-    // You can make an API call or fetch the data from a database
-    // Here, we are using the jobData array to find the job details by jobId
     const jobData = [
       {
         id: "1",
